@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="utf-8">
+    <link href="./styles/styles.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <title>Modulo 2 Tarea 3</title>
+</head>
+
+<body>
+    <header>
+        <div class="logo">
+            <img src="./img/camara_de_representantes.png" alt="logo del gobierno de los Estados Unidos">
+            <h1>TGIF </h1>
+        </div>
+        <a href="mailto:info@TGIF.com">info@TGIF.com</a>
+    </header>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="index.html">Home</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <ul class="navbar-nav">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="true">
+                  Congress 113
+                </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                            <li><a class="dropdown-item" href="house-starter-page.html">House</a></li>
+                            <li><a class="dropdown-item" href="senate-starter-page.html">Senate</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="true">
+                  Attendace
+                </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                            <li><a class="dropdown-item" href="House-Atendance.html">House</a></li>
+                            <li><a class="dropdown-item" href="Senate-Atendance.html">Senate</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="true">
+                  Party Loyalty
+                </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                            <li><a class="dropdown-item" href="House-Party-Loyalty.html">House</a></li>
+                            <li><a class="dropdown-item" href="Senate-Party-Loyalty.html">Senate</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <section>
+        <div id="app">
+          <div id="container1">
+             <div>
+                <h2>Attendance</h2>
+                <p>The Constitution specifies that a majority of members constitutes a quorum to do business in each house. Representatives and senators rarely force the presence of a quorum by demanding quorum calls; thus, in most cases, debates continue
+                    even if a majority is not present.</p>
+
+                <p>The Senate uses roll-call votes; a clerk calls out the names of all the senators, each senator stating "aye" or "no" when his or her name is announced. The House reserves roll-call votes for the most formal matters, as a roll-call of all
+                    435 representatives takes quite some time; normally, members vote by electronic device. In the case of a tie, the motion in question fails. In the Senate, the Vice President may (if present) cast the tiebreaking vote.</p>
+             </div>
+            <div class="Tabla-Datos">
+                <table class="table table-dark table-hover w-100">
+                    <h2>House at a Glance</h2>
+                    <thead>
+                        <th>Party</th>
+                        <th>Nº of Reps</th>
+                        <th>% Votes w/party</th>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Republicans</td>
+                            <td>{{estadisticas.Republicans.length}}</td>
+                            <td>{{estadisticas.republicanVoteAverage}}%</td>
+                        </tr>
+                        <tr>
+                            <td>Democrats</td>
+                            <td>{{estadisticas.Democrats.length}}</td>
+                            <td>{{estadisticas.democratsVoteAverage}}%</td>
+                        </tr>
+                        <tr>
+                            <td>Independents</td>
+                            <td>{{estadisticas.Independents.length}}</td>
+                            <td>0%</td>
+                        </tr>
+                        <tr>
+                            <td>Total</td>
+                            <td>{{estadisticas.Independents.length + estadisticas.Democrats.length + estadisticas.Republicans.length}}</td>
+                            <td>{{(0 + estadisticas.democratsVoteAverage + estadisticas.republicanVoteAverage).toFixed(2)}}%</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+          </div>
+          <div class="titulos">
+            <h2 class="least">Least Engaged Bottom 10% of Missed Votes</h2>
+            <h2 class="most">Most Engaged Top 10% of Missed Votes</h2>
+          </div>
+          <div id="container2">
+            <table class="table table-dark table-hover">
+
+                <thead>
+                    <th>Names</th>
+                    <th>Nº of missed votes</th>
+                    <th>% missed votes</th>
+                </thead>
+                <tbody>
+                    <tr v-for="member in estadisticas.congressmenFewerVotes">
+                        <td>{{member.last_name}}, {{member.first_name}} {{member.middle_name || ""}}
+                        </td>
+                        <td>{{member.missed_votes_pct}}</td>
+                        <td>{{(member.missed_votes_pct).toFixed(2)}}&#37;</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <table class="table table-dark table-hover h-50">
+                <thead>
+                    <th>Names</th>
+                    <th>Nº of Missed Votes</th>
+                    <th>% missed votes</th>
+                </thead>
+                <tbody>
+                    <tr v-for="member in estadisticas.congressmenWigherWotes">
+
+                        <td>{{member.last_name}}, {{member.first_name}} {{member.middle_name || ""}}
+                        </td>
+                        <td>{{member.missed_votes_pct}}</td>
+                        <td>{{(member.missed_votes_pct).toFixed(2)}}&#37;</td>
+                    </tr>
+                </tbody>
+            </table>
+          </div>
+        </div>
+    </section>
+    <footer>
+        <img src="./img/logo-casa-blanca.png" alt="logo de la casa blanca"> ©2016 TGIF| All Rigth Reserved
+        <img src="./img/The-United-State-of-America-Logo.jpg" alt="Logo del gobierno de los EE.UU">
+    </footer>
+    <script src="./scripts/datahouse.js"></script>
+    <script src="https://unpkg.com/vue@next"></script>
+    <script src="./scripts/app.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
+</body>
+
+</html>

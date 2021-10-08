@@ -1,0 +1,168 @@
+/* variables */
+
+ :root {
+    --color: #ffff;
+    --background-color: #051D77
+}
+
+
+/* ******************************************************** */
+
+
+/* header */
+
+header {
+    background-color: var( --background-color);
+    height: 25vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+header .logo {
+    display: flex;
+    align-items: center;
+    margin-left: 6rem;
+}
+
+header h1 {
+    color: var( --color);
+    font-size: 10vh;
+}
+
+header img {
+    height: 20vh;
+}
+
+header a {
+    color: var( --color);
+    text-decoration: none;
+    font-size: 2rem;
+    min-width: 6rem !important;
+    padding: 1.5rem;
+    margin-right: 6rem;
+}
+
+header a:hover {
+    background-color: var(--color);
+    color: black;
+    padding: 4px;
+    border-radius: 2px;
+}
+
+
+/* ************************************************************** */
+
+
+/* nav */
+
+nav {
+    padding: 2vw;
+    background-color: lightgrey;
+}
+
+
+/* ************************************************************** */
+
+
+/* section */
+
+section h2 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2vh;
+    font-size: 8vh;
+}
+
+section p {
+    margin: 4vw;
+    font-size: 25px;
+}
+
+section h3 {
+    margin-left: 4vw;
+    padding: 2vh;
+    font-size: 6vh;
+}
+
+section .accordion-button {
+    width: 50vw;
+    margin: 2vw;
+}
+
+
+/* ************************************************************** */
+
+
+/* footer */
+
+footer {
+    height: 10vh;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    color: var(--color);
+    background-color: var(--background-color);
+}
+
+footer img {
+    height: 8vh;
+}
+
+
+/* ***************************************************************** */
+
+
+
+
+/* Checkboxs */
+
+section .check {
+    display: flex;
+    justify-content: center;
+}
+
+
+/* ************************************************************************** */
+
+
+/* Tablas Atendace y Loyalty*/
+
+#container1{
+  display: flex;
+  justify-content:space-between;
+}
+
+#container1 p{
+  font-size: 18px;
+}
+#container1 div{
+  width: 50%;
+}
+#container1 table{
+  width: 50%;
+}
+#table-senate table{
+  width: 100%;
+}
+
+#container2{
+  display: flex;
+  justify-content:space-between;
+}
+
+
+.titulos{
+  display: flex;
+  justify-content:space-between;
+  font-size: 18px
+}
+#container2{
+  display: flex;
+  justify-content:space-between;
+}
+#container2 table{
+  margin: 1rem;
+}
